@@ -1,4 +1,8 @@
+const { user } = require('firebase-functions/lib/providers/auth');
+
+//---Helper functions for type validation
 const isEmpty = (string) => {
+  console.log('STRING VALUE___', string);
   if (string.trim() === '') {
     return true;
   } else {
@@ -14,7 +18,9 @@ const isEmail = (email) => {
     return false;
   }
 };
+//--------------------------------------
 
+//---Validating Sign Up information
 exports.validateSignupData = (data) => {
   let errors = {};
 
@@ -35,6 +41,7 @@ exports.validateSignupData = (data) => {
   };
 };
 
+//---Validationg Login Information---
 exports.validateLoginData = (data) => {
   let errors = {};
 
@@ -45,4 +52,22 @@ exports.validateLoginData = (data) => {
     errors,
     valid: Object.keys(errors).length === 0 ? true : false,
   };
+};
+
+//---If values passed from body, add them to user details
+exports.reduceUserDetails = (data) => {
+  let userDetails = {};
+  if (!isEmpty(data.bio.trim())) {
+    userDetails.bio = data.bio;
+  }
+  if (!isEmpty(data.website.trim())) {
+    if (data.website.trim().substring(0, 4) !== 'http') {
+      userDetails.website = `http://${data.website.trim()}`;
+    } else userDetails.website = data.website;
+  }
+  if (!isEmpty(data.location.trim())) {
+    userDetails.location = data.location;
+  }
+
+  return userDetails;
 };
