@@ -4,7 +4,7 @@ let db = {
       userId: '32p09412pofjhadfl;akjsdhf',
       email: 'validemail@gmail.com',
       handle: 'user',
-      createdAt: 'somedate',
+      createdAt: '2020-09-08T17:18:14.584Z',
       imageUrl: 'imaaage/asdfsdfsd/asdfasd',
       bio: 'Hello, my name is user, nice to meet you',
       website: 'http://user.com',
@@ -25,7 +25,17 @@ let db = {
       userHandle: 'user',
       screamId: 'dfksjdflasdjk3r09i3r2',
       body: 'nice post!',
-      createdAt: 'sample date',
+      createdAt: '2020-09-08T17:18:14.584Z',
+    },
+  ],
+  notification: [
+    {
+      recipient: 'user',
+      sender: 'john',
+      read: 'true | false',
+      screamId: 'dfaljkads9u34298hr2oin23o3in',
+      type: 'like | comment',
+      createdAt: '2020-09-08T17:18:14.584Z',
     },
   ],
 };

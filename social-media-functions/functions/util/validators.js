@@ -2,7 +2,6 @@ const { user } = require('firebase-functions/lib/providers/auth');
 
 //---Helper functions for type validation
 const isEmpty = (string) => {
-  console.log('STRING VALUE___', string);
   if (string.trim() === '') {
     return true;
   } else {
